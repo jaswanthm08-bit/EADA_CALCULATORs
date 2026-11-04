@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f5fb" />
+    <meta name="description" content="A clean, responsive calculator for everyday math." />
+    <title>Orbit Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-heading">
+        <div class="brand-mark" aria-hidden="true">o</div>
+        <span>ORBIT <span class="brand-light">CALCULATOR</span></span>
+      </header>
+
+      <section class="calculator" aria-label="Calculator">
+        <div class="calculator-topline">
+          <span class="eyebrow">Everyday maths</span>
+          <span class="status-dot" aria-hidden="true"></span>
+        </div>
+
+        <div class="display" aria-label="Calculator display">
+          <div class="expression" id="expression" aria-hidden="true">&nbsp;</div>
+          <output class="result" id="result" aria-live="polite" aria-atomic="true">0</output>
+        </div>
+
+        <div class="keypad" id="keypad" aria-label="Calculator keys">
+          <button class="key key-utility" type="button" data-action="clear" aria-label="Clear all">AC</button>
+          <button class="key key-utility" type="button" data-action="sign" aria-label="Change sign">+/-</button>
+          <button class="key key-utility" type="button" data-action="percent" aria-label="Percent">%</button>
+          <button class="key key-operator" type="button" data-action="operator" data-value="/" aria-label="Divide">÷</button>
+
+          <button class="key" type="button" data-action="digit" data-value="7">7</button>
+          <button class="key" type="button" data-action="digit" data-value="8">8</button>
+          <button class="key" type="button" data-action="digit" data-value="9">9</button>
+          <button class="key key-operator" type="button" data-action="operator" data-value="*" aria-label="Multiply">×</button>
+
+          <button class="key" type="button" data-action="digit" data-value="4">4</button>
+          <button class="key" type="button" data-action="digit" data-value="5">5</button>
+          <button class="key" type="button" data-action="digit" data-value="6">6</button>
+          <button class="key key-operator" type="button" data-action="operator" data-value="-" aria-label="Subtract">−</button>
+
+          <button class="key" type="button" data-action="digit" data-value="1">1</button>
+          <button class="key" type="button" data-action="digit" data-value="2">2</button>
+          <button class="key" type="button" data-action="digit" data-value="3">3</button>
+          <button class="key key-operator" type="button" data-action="operator" data-value="+" aria-label="Add">+</button>
+
+          <button class="key key-zero" type="button" data-action="digit" data-value="0">0</button>
+          <button class="key" type="button" data-action="decimal" aria-label="Decimal point">.</button>
+          <button class="key key-equals" type="button" data-action="equals" aria-label="Equals">=</button>
+        </div>
+      </section>
+
+      <p class="keyboard-hint">Use your keyboard, or click the keys</p>
+      <footer class="page-footer">A little clarity for the numbers.</footer>
+    </main>
+  </body>
+</html>

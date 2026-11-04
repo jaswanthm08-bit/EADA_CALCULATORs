@@ -1,0 +1,214 @@
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #19243b;
+  background: #f3f5fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  --ink: #19243b;
+  --muted: #8a93a7;
+  --accent: #c7f36a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 17% 14%, rgba(215, 225, 255, .56), transparent 31rem),
+    radial-gradient(ellipse at 90% 86%, rgba(220, 242, 201, .34), transparent 26rem),
+    #f3f5fb;
+}
+
+button { font: inherit; }
+
+.page-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 34px 20px 26px;
+}
+
+.page-heading {
+  display: flex;
+  width: min(100%, 1020px);
+  align-items: center;
+  gap: 10px;
+  color: #47536a;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.brand-mark {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border: 1px solid #d9deea;
+  border-radius: 50%;
+  color: #53627e;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.brand-light { color: #98a0b1; font-weight: 500; }
+
+.calculator {
+  width: min(100%, 366px);
+  margin: auto 0;
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,.88);
+  border-radius: 28px;
+  background: rgba(255,255,255,.84);
+  box-shadow: 0 30px 75px rgba(38, 52, 87, .12), 0 4px 14px rgba(38, 52, 87, .04);
+  backdrop-filter: blur(16px);
+}
+
+.calculator-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 2px 0;
+}
+
+.eyebrow {
+  color: #9aa2b3;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b9e85a;
+  box-shadow: 0 0 0 4px rgba(185,232,90,.15);
+}
+
+.display {
+  display: flex;
+  min-height: 142px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 23px 2px 24px;
+  font-family: Consolas, "Courier New", monospace;
+  text-align: right;
+}
+
+.expression {
+  min-height: 22px;
+  max-width: 100%;
+  overflow: hidden;
+  color: #9aa2b3;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: clamp(42px, 12vw, 56px);
+  letter-spacing: -.075em;
+  line-height: 1.16;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.key {
+  display: grid;
+  min-width: 0;
+  aspect-ratio: 1.12;
+  place-items: center;
+  border: 0;
+  border-radius: 17px;
+  background: #f0f2f7;
+  color: #29354b;
+  cursor: pointer;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 19px;
+  transition: background 130ms ease, color 130ms ease, transform 130ms ease, box-shadow 130ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key:hover { background: #e7eaf2; transform: translateY(-1px); }
+.key:active { transform: translateY(1px) scale(.98); }
+.key:focus-visible { outline: 3px solid #8395c4; outline-offset: 2px; }
+
+.key-utility {
+  background: #e8ebf3;
+  color: #69758d;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.key-operator {
+  background: #e6ebf7;
+  color: #576990;
+  font-size: 21px;
+}
+
+.key-operator.is-selected { background: #d8e0f2; color: #384a72; }
+
+.key-zero {
+  grid-column: span 2;
+  aspect-ratio: auto;
+  justify-items: start;
+  padding-left: 26px;
+}
+
+.key-equals {
+  background: var(--accent);
+  color: #34411f;
+  font-size: 23px;
+  font-weight: 500;
+  box-shadow: 0 8px 18px rgba(156, 198, 69, .2);
+}
+
+.key-equals:hover { background: #b9e85a; }
+
+.keyboard-hint {
+  margin: 20px 0 0;
+  color: #9ba3b3;
+  font-size: 11px;
+  text-align: center;
+}
+
+.page-footer {
+  color: #a5acba;
+  font-size: 11px;
+  letter-spacing: .035em;
+}
+
+@media (max-width: 420px) {
+  .page-shell { padding: 23px 16px; }
+  .calculator { padding: 20px; border-radius: 24px; }
+  .keypad { gap: 8px; }
+  .key { border-radius: 14px; }
+  .display { min-height: 126px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
